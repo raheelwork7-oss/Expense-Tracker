@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExpenseTracker - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
+          <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
+          <path d="M18 12a2 2 0 0 0 0 4h4v-4z" />
+        </svg>
+        <span class="brand-title">ExpenseTracker</span>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#dashboard" class="nav-link active" data-view="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Dashboard
+        </a>
+        <a href="#transactions" class="nav-link" data-view="transactions">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Transactions
+        </a>
+        <a href="#analytics" class="nav-link" data-view="analytics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Analytics
+        </a>
+        <a href="#categories" class="nav-link" data-view="categories">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Categories
+        </a>
+        <a href="#settings" class="nav-link" data-view="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="view-panel active" data-view="dashboard">
+        <!-- Top Header -->
+        <header class="top-header">
+          <div class="header-title-block">
+            <span class="eyebrow">This month</span>
+            <div class="header-title">
+              <h1>Expense Overview</h1>
+              <p>Track your spending and manage your money efficiently.</p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="searchInput" placeholder="Search transactions...">
+            </div>
+            <div class="user-profile">
+              <div class="avatar">JD</div>
+              <div class="user-info">
+                <span class="user-name">John Doe</span>
+                <span class="user-role">Premium Member</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Summary Cards -->
+        <section class="summary-cards">
+          <div class="card card-balance">
+            <div class="card-header">
+              <span class="card-title">Total Balance</span>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+            </div>
+            <div class="card-amount" id="totalBalance">$0.00</div>
+            <div class="card-footer">
+              <span class="badge badge-success">Live</span>
+              <span class="comparison">updated from data</span>
+            </div>
+          </div>
+
+          <div class="card card-income">
+            <div class="card-header">
+              <span class="card-title">Total Income</span>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+            </div>
+            <div class="card-amount" id="totalIncome">$0.00</div>
+            <div class="card-footer">
+              <span class="badge badge-success">Live</span>
+              <span class="comparison">from transactions</span>
+            </div>
+          </div>
+
+          <div class="card card-expenses">
+            <div class="card-header">
+              <span class="card-title">Total Expenses</span>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+              </div>
+            </div>
+            <div class="card-amount" id="totalExpenses">$0.00</div>
+            <div class="card-footer">
+              <span class="badge badge-danger">Live</span>
+              <span class="comparison">from transactions</span>
+            </div>
+          </div>
+
+          <div class="card card-savings">
+            <div class="card-header">
+              <span class="card-title">Total Savings</span>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+              </div>
+            </div>
+            <div class="card-amount" id="totalSavings">$0.00</div>
+            <div class="card-footer">
+              <span class="badge badge-success">Live</span>
+              <span class="comparison">current surplus</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Middle Grid: Form & Spending Chart -->
+        <section class="grid-two-columns">
+          <!-- Add Expense Form -->
+          <div class="panel form-panel">
+            <div class="panel-header">
+              <h2>Add New Transaction</h2>
+            </div>
+            <form id="transactionForm">
+              <div class="form-group">
+                <label for="name">Title / Description</label>
+                <input type="text" id="name" placeholder="e.g. Grocery Shopping" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="amount">Amount ($)</label>
+                  <input type="number" step="0.01" id="amount" placeholder="0.00" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="type">Type</label>
+                  <select id="type">
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select id="category">
+                    <option value="Food">Food</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Salary">Salary / Work</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="date">Date</label>
+                  <input type="date" id="date" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="paymentMethod">Payment Method</label>
+                <select id="paymentMethod">
+                  <option value="Credit Card">Credit Card</option>
+                  <option value="Debit Card">Debit Card</option>
+                  <option value="Bank Transfer">Bank Transfer</option>
+                  <option value="Cash">Cash</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Add Transaction</button>
+            </form>
+          </div>
+
+          <!-- Spending Breakdown Progress -->
+          <div class="panel chart-panel">
+            <div class="panel-header">
+              <h2>Spending Breakdown</h2>
+              <span class="subtitle">Monthly category distribution</span>
+            </div>
+            <div class="progress-list" id="categoryBreakdown">
+              <div class="progress-item">
+                <div class="progress-info">
+                  <span>Food & Dining</span>
+                  <span>$850.00 (35%)</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill fill-food" style="width: 35%;"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-info">
+                  <span>Shopping</span>
+                  <span>$620.00 (25%)</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill fill-shopping" style="width: 25%;"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-info">
+                  <span>Bills & Utilities</span>
+                  <span>$1,100.00 (40%)</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill fill-bills" style="width: 40%;"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-info">
+                  <span>Transport</span>
+                  <span>$350.00 (15%)</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill fill-transport" style="width: 15%;"></div></div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-info">
+                  <span>Entertainment</span>
+                  <span>$500.50 (20%)</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill fill-entertainment" style="width: 20%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel table-panel">
+          <div class="panel-header">
+            <h2>Recent Transactions</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="transactions-table">
+              <thead>
+                <tr>
+                  <th>Transaction</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Payment Method</th>
+                  <th>Amount</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="transactionList"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <section class="view-panel" data-view="transactions">
+        <div class="info-header">
+          <span class="eyebrow">Transactions</span>
+          <h2>Cash flow details</h2>
+        </div>
+        <div class="info-grid">
+          <div class="info-card highlight">
+            <p>Total inflow</p>
+            <h3>$8,200.00</h3>
+            <span class="tag success">+8.2% this month</span>
+          </div>
+          <div class="info-card">
+            <p>Total outflow</p>
+            <h3>$3,420.50</h3>
+            <span class="tag danger">+4.1% vs last month</span>
+          </div>
+          <div class="info-card">
+            <p>Pending payments</p>
+            <h3>$460.00</h3>
+            <span class="tag neutral">3 items due soon</span>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h3>Recent entries</h3>
+          <ul class="detail-list">
+            <li><span>Salary</span><strong>+$8,200.00</strong></li>
+            <li><span>Grocery Market</span><strong>-$150.50</strong></li>
+            <li><span>Electricity Bill</span><strong>-$120.00</strong></li>
+            <li><span>Train Pass</span><strong>-$90.00</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="view-panel" data-view="analytics">
+        <div class="info-header">
+          <span class="eyebrow">Analytics</span>
+          <h2>Performance summary</h2>
+        </div>
+        <div class="analytics-grid">
+          <div class="analysis-box">
+            <p>Monthly spend</p>
+            <h3>$3,420.50</h3>
+            <div class="mini-bar"><span style="width: 76%"></span></div>
+          </div>
+          <div class="analysis-box">
+            <p>Savings rate</p>
+            <h3>38.4%</h3>
+            <div class="mini-bar green"><span style="width: 64%"></span></div>
+          </div>
+          <div class="analysis-box">
+            <p>Cash flow</p>
+            <h3>+$4,779.50</h3>
+            <div class="mini-bar purple"><span style="width: 82%"></span></div>
+          </div>
+        </div>
+        <div class="detail-panel">
+          <h3>Key insights</h3>
+          <ul class="detail-list">
+            <li><span>Food spending</span><strong>Up 18%</strong></li>
+            <li><span>Utilities</span><strong>Stable</strong></li>
+            <li><span>Transportation</span><strong>Down 12%</strong></li>
+            <li><span>Net balance</span><strong>Positive</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="view-panel" data-view="categories">
+        <div class="info-header">
+          <span class="eyebrow">Categories</span>
+          <h2>Budget by category</h2>
+        </div>
+        <div class="category-grid">
+          <div class="category-card food">
+            <span>Food</span>
+            <strong>$1,200</strong>
+            <small>35% of total</small>
+          </div>
+          <div class="category-card shopping">
+            <span>Shopping</span>
+            <strong>$890</strong>
+            <small>25% of total</small>
+          </div>
+          <div class="category-card bills">
+            <span>Bills</span>
+            <strong>$1,320</strong>
+            <small>40% of total</small>
+          </div>
+          <div class="category-card transport">
+            <span>Transport</span>
+            <strong>$370</strong>
+            <small>10% of total</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="view-panel" data-view="settings">
+        <div class="info-header">
+          <span class="eyebrow">Settings</span>
+          <h2>Account preferences</h2>
+        </div>
+        <div class="settings-grid">
+          <div class="setting-box">
+            <h3>General</h3>
+            <p>Default currency: USD</p>
+            <p>Language: English</p>
+          </div>
+          <div class="setting-box">
+            <h3>Notifications</h3>
+            <p>Email alerts: Enabled</p>
+            <p>Monthly summary: On</p>
+          </div>
+          <div class="setting-box">
+            <h3>Security</h3>
+            <p>2-step verification: Active</p>
+            <p>Last updated: Today</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
